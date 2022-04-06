@@ -1,0 +1,7 @@
+div#demo {
+    color: red;
+    border-color: grey;
+    border-style: solid;
+    height: 40px;
+    width: 200px;
+}
