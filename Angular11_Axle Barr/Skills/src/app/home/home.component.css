@@ -5,3 +5,6 @@ div#demo {
     height: 40px;
     width: 200px;
 }
+:host {
+    background-color: yellow;
+}
