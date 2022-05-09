@@ -12,4 +12,5 @@ declare const generateRandomNumbers: any;
 export class ProductComponent{
     showDiv = true;
     randomNumbers = <[]>generateRandomNumbers();
+    departments = ["Mountain Bycicles", "Road Bycicles", "Hybrid Bycicles", "Bycicle Pumps"];
 }
