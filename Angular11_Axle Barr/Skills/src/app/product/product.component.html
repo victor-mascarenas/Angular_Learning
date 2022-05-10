@@ -1,5 +1,5 @@
 <h2>Product list</h2>
 <div *ngFor="let number of randomNumbers | paginate: {itemsPerPage: itemsToDisplay, currentPage: page}">
-    {{number}}
+    {{number | classify}}
 </div>
 <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
