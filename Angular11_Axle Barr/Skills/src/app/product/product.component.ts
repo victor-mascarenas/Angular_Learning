@@ -10,7 +10,9 @@ declare const generateRandomNumbers: any;
 })
 
 export class ProductComponent{
-    randomNumbers = <[]>generateRandomNumbers().sort((a: number, b: number) => a - b);
+    randomNumbers = <[]>generateRandomNumbers()
+        .filter((a: number) => a < 2000)
+        .sort((a: number, b: number) => a - b);
     page: number = 1;
     itemsToDisplay: number = 10;
 
