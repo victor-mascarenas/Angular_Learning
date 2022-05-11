@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 declare const generateRandomNumbers: any;
 
@@ -20,7 +20,14 @@ export class ProductComponent{
     @Input()
     parent_title: string = "";
 
+    @Output()
+    child_newProductEvent = new EventEmitter<string>();
+
     pageChanged(event: any){
         this.page = event;
+    }
+
+    addProduct(value: string){
+        this.child_newProductEvent.emit(value);
     }
 }

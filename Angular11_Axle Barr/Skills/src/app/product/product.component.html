@@ -4,3 +4,8 @@
     {{number | classify}}
 </div>
 <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+<label>
+    Add a new product
+    <input #newProduct/>
+</label>
+<button (click)="addProduct(newProduct.value)">Add</button>
