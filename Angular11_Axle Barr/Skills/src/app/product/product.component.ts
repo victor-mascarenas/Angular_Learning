@@ -16,6 +16,7 @@ export class ProductComponent{
         .sort((a: number, b: number) => a - b);
     page: number = 1;
     itemsToDisplay: number = 10;
+    inStock: number = 10;
 
     @Input()
     parent_title: string = "";
@@ -29,5 +30,8 @@ export class ProductComponent{
 
     addProduct(value: string){
         this.child_newProductEvent.emit(value);
+    }
+    child1Method(){
+        console.log('A method in the product component - The child');
     }
 }
