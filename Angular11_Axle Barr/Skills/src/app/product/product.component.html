@@ -1,11 +1,4 @@
-<h1>{{parent_title}}</h1>
 <h2>Product list</h2>
-<div *ngFor="let number of randomNumbers | paginate: {itemsPerPage: itemsToDisplay, currentPage: page}">
-    {{number | classify}}
+<div id="display" *ngFor="let todo of todos">
+    <div>User ID:{{todo.userID}} ID: {{todo.id}}</div>
 </div>
-<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
-<label>
-    Add a new product
-    <input #newProduct/>
-</label>
-<button (click)="addProduct(newProduct.value)">Add</button>

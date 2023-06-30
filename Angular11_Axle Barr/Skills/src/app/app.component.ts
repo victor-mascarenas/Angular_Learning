@@ -22,8 +22,8 @@ export class AppComponent {
   productComponent: ProductComponent = {} as ProductComponent;
 
   ngAfterViewInit(){
-    this.productComponent.child1Method();
+    /*this.productComponent.child1Method();
     this.quantity = this.productComponent.inStock;
-    console.log(this.quantity);
+    console.log(this.quantity);*/
   }
 }

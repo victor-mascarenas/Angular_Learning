@@ -1,6 +1,12 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
-declare const generateRandomNumbers: any;
+interface JSP {
+    userID: string,
+    id: string,
+    title: string,
+    completed: boolean
+}
 
 @Component({
     selector: 'app-product',
@@ -10,28 +16,16 @@ declare const generateRandomNumbers: any;
     ]
 })
 
-export class ProductComponent{
-    randomNumbers = <[]>generateRandomNumbers()
-        .filter((a: number) => a < 2000)
-        .sort((a: number, b: number) => a - b);
-    page: number = 1;
-    itemsToDisplay: number = 10;
-    inStock: number = 10;
+export class ProductComponent implements OnInit{
+    public todos: JSP[];
 
-    @Input()
-    parent_title: string = "";
-
-    @Output()
-    child_newProductEvent = new EventEmitter<string>();
-
-    pageChanged(event: any){
-        this.page = event;
+    constructor(private httpClient: HttpClient){
+        this.todos = [];
     }
 
-    addProduct(value: string){
-        this.child_newProductEvent.emit(value);
-    }
-    child1Method(){
-        console.log('A method in the product component - The child');
+    ngOnInit(): void {
+        console.log('ola');
+        this.httpClient.get<JSP[]>("https://jsonplaceholder.typicode.com/todos")
+            .subscribe(results => this.todos = results);
     }
 }
