@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute } from "@angular/router";
 
 interface JSP {
     userID: string,
@@ -19,13 +20,13 @@ interface JSP {
 export class ProductComponent implements OnInit{
     public todos: JSP[];
 
-    constructor(private httpClient: HttpClient){
+    constructor(private httpClient: HttpClient, private route: ActivatedRoute){
         this.todos = [];
     }
 
     ngOnInit(): void {
-        console.log('ola');
         this.httpClient.get<JSP[]>("https://jsonplaceholder.typicode.com/todos")
             .subscribe(results => this.todos = results);
+        this.route.params.subscribe(params => console.log(params));
     }
 }
